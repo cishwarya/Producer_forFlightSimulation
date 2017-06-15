@@ -21,6 +21,25 @@ public class FlightLog {
 	private String pm_dVerticalSpeed;
 	
 	
+	
+	
+	public FlightLog(String sNo, String pm_iAddrModeS, String pm_dLatitude, String pm_dLongitude,
+			String pm_dAltitudeMSL, String pm_dRoll, String pm_dPitch, String pm_dHeading, String pm_dGroundTrack,
+			String pm_dAirSpeed, String pm_dGroundSpeed, String pm_dVerticalSpeed) {
+		super();
+		this.sNo = sNo;
+		this.pm_iAddrModeS = pm_iAddrModeS;
+		this.pm_dLatitude = pm_dLatitude;
+		this.pm_dLongitude = pm_dLongitude;
+		this.pm_dAltitudeMSL = pm_dAltitudeMSL;
+		this.pm_dRoll = pm_dRoll;
+		this.pm_dPitch = pm_dPitch;
+		this.pm_dHeading = pm_dHeading;
+		this.pm_dGroundTrack = pm_dGroundTrack;
+		this.pm_dAirSpeed = pm_dAirSpeed;
+		this.pm_dGroundSpeed = pm_dGroundSpeed;
+		this.pm_dVerticalSpeed = pm_dVerticalSpeed;
+	}
 	public String getsNo() {
 		return sNo;
 	}
