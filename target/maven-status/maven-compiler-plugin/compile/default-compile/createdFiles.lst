@@ -1,0 +1,6 @@
+io/producer/init/Main.class
+META-INF/maven/Producer/Producer/pom.xml
+META-INF/maven/Producer/Producer/pom.properties
+io/producer/dto/FlightLog.class
+META-INF/MANIFEST.MF
+io/producer/file/ReadFile.class
