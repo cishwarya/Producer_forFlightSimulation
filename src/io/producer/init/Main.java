@@ -13,7 +13,7 @@ public class Main {
 	     
 	public static void main(String[] args) {
 		rows = ReadFile.read();
-		Rest.get(rows);			
+		Rest.post(rows);			
 	}
 
 }

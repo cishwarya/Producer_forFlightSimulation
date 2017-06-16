@@ -7,8 +7,10 @@ import org.springframework.web.client.RestTemplate;
 import io.producer.dto.FlightLog;
 
 public class Rest {
+	
 	private static final String url = "http://localhost:8080";
-	public static void get(List<FlightLog> rows) {
+	
+	public static void post(List<FlightLog> rows) {
 		rows.forEach(row -> {
 			System.out.println();
 		

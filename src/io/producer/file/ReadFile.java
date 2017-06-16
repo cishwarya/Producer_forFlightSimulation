@@ -11,7 +11,10 @@ import io.producer.dto.FlightLog;
 
 public class ReadFile {
 	private static final String FILENAME = "TraficServerLog.txt";
-	private static List<FlightLog> rows =  new ArrayList<FlightLog>();
+	private static List<FlightLog> rows  =  new ArrayList<FlightLog>();
+	
+	
+
 	
 	public static List<FlightLog> read() {
 		BufferedReader br = null;
@@ -27,10 +30,12 @@ public class ReadFile {
 			br = new BufferedReader(new FileReader(FILENAME));
 
 			while ((sCurrentLine = br.readLine()) != null) {
-				List<String> items = Arrays.asList(sCurrentLine.split(","));
-					
+				List<String> items = Arrays.asList(sCurrentLine.split("\t*\\s*,\\s*\t*"));
+				
+				String sNo = sNoPreProcess(items.get(0));
+								
 				FlightLog flightLog = new FlightLog(
-						items.get(0),
+						sNo,
 						items.get(1),
 						items.get(2),
 						items.get(3),
@@ -43,8 +48,7 @@ public class ReadFile {
 						items.get(10),
 						items.get(11));
 				
-				rows.add(flightLog);
-				
+				rows.add(flightLog);				
 			}
 		
 		return rows;
@@ -69,5 +73,28 @@ public class ReadFile {
 			}
 
 		}
+	}
+
+
+
+
+	private static String sNoPreProcess(String sno) {
+		/*Because can not remove the indent space*/
+		String numberAsString = sno;
+		float number = Float.parseFloat(numberAsString);
+		String sNo = String.valueOf(number);
+		
+		System.out.println("Before "+sNo);
+		
+		String[] parts = sNo.split("\\.");
+		System.out.println("Parts length : "+parts.length);
+		
+		if (parts[1].length() != 2) {
+			sNo += "0";
+		}
+		
+		System.out.println("After "+sNo);
+		
+		return sNo;
 	}
 }
