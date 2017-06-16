@@ -82,19 +82,12 @@ public class ReadFile {
 		/*Because can not remove the indent space*/
 		String numberAsString = sno;
 		float number = Float.parseFloat(numberAsString);
-		String sNo = String.valueOf(number);
-		
-		System.out.println("Before "+sNo);
-		
+		String sNo = String.valueOf(number);	
 		String[] parts = sNo.split("\\.");
-		System.out.println("Parts length : "+parts.length);
 		
 		if (parts[1].length() != 2) {
 			sNo += "0";
 		}
-		
-		System.out.println("After "+sNo);
-		
 		return sNo;
 	}
 }
