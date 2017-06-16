@@ -11,7 +11,7 @@ import io.producer.dto.FlightLog;
 
 public class ReadFile {
 	private static final String FILENAME = "TraficServerLog.txt";
-	private static List<FlightLog> rows = new ArrayList<FlightLog>();
+	private static List<FlightLog> rows =  new ArrayList<FlightLog>();
 	
 	public static List<FlightLog> read() {
 		BufferedReader br = null;
@@ -27,7 +27,25 @@ public class ReadFile {
 			br = new BufferedReader(new FileReader(FILENAME));
 
 			while ((sCurrentLine = br.readLine()) != null) {
-				java.util.List<String> items = Arrays.asList(sCurrentLine.split(","));
+				List<String> items = Arrays.asList(sCurrentLine.split(","));
+				//List<String> items = Arrays.asList(sCurrentLine.split(","));
+				
+/*				List<String> items = new ArrayList<String>();
+				//items.addAll(Arrays.asList(sCurrentLine.split(",")));
+				
+				String[] parts = sCurrentLine.split(",");
+				//System.out.println("File :: "+parts[5]);
+				//items.forEach(item -> System.out.println("File : "+item));
+				
+				IntStream.range(0, parts.length)
+						 .forEach(value -> {
+							 items.add(parts[value]);
+							 //System.out.println("File :: "+parts[value]);
+							 });
+				
+				//System.out.println("size :: "+items.size());
+				System.out.println("File :: "+items.get(2));*/
+				
 				
 				FlightLog flightLog = new FlightLog(
 						items.get(0),

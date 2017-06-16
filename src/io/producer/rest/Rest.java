@@ -2,24 +2,29 @@ package io.producer.rest;
 
 import java.util.List;
 
+import org.springframework.web.client.RestTemplate;
+
 import io.producer.dto.FlightLog;
 
 public class Rest {
-
+	private static final String url = "http://localhost:8080";
 	public static void get(List<FlightLog> rows) {
-		/*		rows.forEach(row -> {
-		System.out.println(row.get(0));
+		rows.forEach(row -> {
+			System.out.println();
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		//Change row to java object
-		//change java object to json object
-		//send post request to flightlog server
-	});		*/
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		      RestTemplate restTemplate = new RestTemplate();		 
+		      String response = restTemplate.postForObject(url+"/post/", row, String.class);
+		      
+		      if (response.equals("Saved")) {
+		    	  System.out.println("serial number : "+ row.getsNo() +" "+response);
+			}
+		});		
 	}
 
 }
